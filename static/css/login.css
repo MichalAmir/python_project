@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0; /* Remove border radius from container */
+    overflow: hidden;
+}
+
+.image-section {
+    width: 70%;
+    background-image: url('https://cdn.pixabay.com/photo/2024/04/18/10/09/ai-generated-8704008_640.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    border-radius: 0; /* Remove border radius from image section */
+}
+
+.login-section {
+    width: 30%;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    color: #1e90ff; /* Dodger blue */
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 10px;
+    color: #1e90ff;
+    font-size: 16px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #1e90ff; /* Border color */
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%; /* Full width for input fields */
+    box-shadow: inset 0 0 0 1px #ccc; /* Light shadow to create inset effect */
+}
+
+/* Center the placeholder text */
+input::placeholder {
+    color: #aaa; /* Placeholder text color */
+    opacity: 1; /* Ensure placeholder is visible */
+}
+
+/* Hide placeholder text when user is typing */
+input:focus::placeholder {
+    color: transparent; /* Hide placeholder text when focused */
+}
+
+
+button {
+    padding: 10px;
+    background-color: white; /* Default button background color */
+    color: #1e90ff; /* Default text color */
+    border: 2px solid #1e90ff; /* Border color */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* Full width for the button */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #1e90ff; /* Background color on hover */
+    color: white; /* Text color on hover */
+}
+.error-message {
+  color: red;
+  font-size: 12px; /* Smaller font size for error messages */
+  margin-top: 5px;
+}
+.password-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.password-container input {
+    padding-right: 40px; /* Add padding to make space for the icon */
+}
+
+
+
+
+.password-container i {
+    position: absolute;
+    right: 10px; /* Position the icon inside the input */
+    top: 50%; /* Center the icon vertically */
+    transform: translateY(-100%); /* Adjust to center the icon */
+    cursor: pointer; /* Change cursor to pointer for clickable icon */
+    color: #1e90ff; /* Icon color */
+    border solid 2px red
+}
+
+p{
+margin-top :20px
+}
+
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding a New Doctor</title>
+    <link rel="stylesheet" href="/static/css/function.css">
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Image section */
+        .image-section {
+            flex: 2.5; /* This makes the image section take up more space */
+            background-image: url('https://t3.ftcdn.net/jpg/08/14/42/06/360_F_814420615_7TYsDlaRvTlKX7Mkv9LmPpDhXBeEnLjx.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Form container */
+        .form-section {
+            flex: 1.2; /* This makes the form section take up less space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        /* Form styling */
+        .container {
+            width: 100%;
+            max-width: 600px; /* Set a max width for the form */
+        }
+
+        /* Title */
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Form fields */
+        .doctor-form label {
+            font-weight: bold;
+            color: #333333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .doctor-form input, .doctor-form select, .doctor-form textarea {
+            width: 100%;
+            padding: 9px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #555555;
+            background-color: #f5f5f5;
+        }
+
+        .doctor-form input:focus, .doctor-form select:focus, .doctor-form textarea:focus {
+            border-color: #1a73e8;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        /* Submit button */
+        .submit-button {
+            background-color: #1a73e8;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #155ab6;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-section"></div>
+    <div class="form-section">
+        <div class="container">
+            <h1 class="title">Add a New Doctor</h1>
+            <form action="/add_doctor" method="post" class="doctor-form">
+                <label for="doctor_name">Doctor's Name:</label>
+                <input type="text" id="doctor_name" name="name" required>
+
+                <label for="seniority">Seniority (years):</label>
+                <input type="number" id="seniority" name="seniority" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="category">Category (Field of Expertise):</label>
+                <select id="category" name="category" required>
+                    <option value="Consultation with a doctor">Consultation with a doctor</option>
+                    <option value="Vaccinator">Vaccinator</option>
+                    <option value="Nurse">Nurse</option>
+                    <option value="Specialist Doctor">Specialist Doctor</option>
+                </select>
+
+                <label for="image_url">Image URL:</label>
+                <input type="url" id="image_url" name="image_url" required>
+
+                <label for="description">Doctor's Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit" class="submit-button">Add Doctor</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+

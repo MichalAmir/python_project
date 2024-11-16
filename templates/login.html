@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Login Page</title>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = document.getElementById("eyeIcon");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+
+        function clearUsernameError() {
+            const usernameError = document.getElementById("usernameError");
+            if (usernameError) {
+                usernameError.style.display = "none";
+            }
+        }
+        function clearPasswordError() {
+    const passwordError = document.getElementById("passwordError");
+    if (passwordError) {
+        passwordError.style.display = "none"; // Hide the error message
+    }
+}
+
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="image-section">
+    </div>
+    <div class="login-section">
+        <h2>Login</h2>
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="username">Username</label>
+            <span id="usernameError" class="error-message"
+                  style="{% if username_error %} display: block; {% else %} display: none; {% endif %};"><i
+                    class="fas fa-exclamation-triangle"></i> * User not found</span>
+            <input type="text" id="username" name="username" placeholder="Enter your username"
+                   value="{{ username }}" class="{% if username_error %} error {% endif %}"
+                   onclick="clearUsernameError()">
+
+
+            <label for="password">Password</label>
+            <span id="passwordError" class="error-message"
+                  style="{% if password_error %} display: block; {% else %} display: none; {% endif %};"><i
+                    class="fas fa-exclamation-triangle"></i> * Incorrect password</span>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Enter your password"
+                       class="{% if password_error %} error {% endif %}" oninput="clearPasswordError()">
+
+                <i id="eyeIcon" class="fas fa-eye" onclick="togglePasswordVisibility()"></i>
+
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+      <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+</div>
+</body>
+</html>
